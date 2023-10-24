@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { FormikProps } from "formik";
+import { ValidationError } from "yup";
 import ContinueButton from "./ContinueButton";
 import Dropdown from "./Dropdown";
 import InputComponent from "./InputComponent";
-import { FormikProps } from "formik";
 import { emailSchema, usernameSchema, toggleSchema } from "./Validationschema";
-import { ValidationError } from "yup";
 
 type CenterFormValues = {
   Username: string;

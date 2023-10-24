@@ -19,14 +19,13 @@ interface InputProps {
 }
 
 function Passwordstage({ password, repass, handlestate, fik }: InputProps) {
-  const [buttonstatepass, setButtonstatepass] = useState<boolean>(false);
-  const [passwordError, setpasswordError] = useState<string>("");
-  const [repeatPasswordError, setrepeatPasswordError] = useState<string>("");
+  // const [buttonstatepass, setButtonstatepass] = useState<boolean>(false);
+  const [passwordError, setpasswordError] = useState<string>("1");
+  const [repeatPasswordError, setrepeatPasswordError] = useState<string>("1");
   const [hasError, sethasError] = useState<boolean>(true);
 
   const handleSubmit = () => {
     if (!hasError) {
-      setButtonstatepass(true);
       handlestate();
     }
   };
@@ -57,11 +56,9 @@ function Passwordstage({ password, repass, handlestate, fik }: InputProps) {
 
   useEffect(() => {
     if (passwordError === "" && repeatPasswordError === "") {
-      sethasError(true);
-      setButtonstatepass(false);
-    } else {
       sethasError(false);
-      setButtonstatepass(true);
+
+      sethasError(true);
     }
   }, [passwordError, repeatPasswordError]);
 
@@ -80,7 +77,7 @@ function Passwordstage({ password, repass, handlestate, fik }: InputProps) {
         onChange={handleValidation}
       />
       s
-      {buttonstatepass ? (
+      {!hasError ? (
         <ContinueButton handlestate={handleSubmit} color="2" />
       ) : (
         <ContinueButton handlestate={() => {}} color="6" />

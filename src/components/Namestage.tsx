@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { FormikProps } from "formik";
-import { ValidationError } from "yup";
 import ContinueButton from "./ContinueButton";
 import Dropdown from "./Dropdown";
 import InputComponent from "./InputComponent";
+import { FormikProps } from "formik";
 import { emailSchema, usernameSchema, toggleSchema } from "./Validationschema";
+import { ValidationError } from "yup";
 
 type CenterFormValues = {
   Username: string;
@@ -31,10 +31,10 @@ function Namestage({
   fik,
   handletoggle,
 }: NamestageProps) {
-  const [buttonstatename, setButtonstatename] = useState<boolean>(false);
-  const [usernameError, setusernameError] = useState<string>("");
-  const [emailError, setemailError] = useState<string>("");
-  const [toggleError, settoggleError] = useState<string>("");
+  // const [buttonstatename, setButtonstatename] = useState<boolean>(false);
+  const [usernameError, setusernameError] = useState<string>("1");
+  const [emailError, setemailError] = useState<string>("1");
+  const [toggleError, settoggleError] = useState<string>("1");
   const [hasError, sethasError] = useState<boolean>(true);
 
   const handleSubmit = () => {
@@ -86,11 +86,10 @@ function Namestage({
     console.log(fik.values.toggle, "toggle fik");
     console.log(emailError, "email error");
 
-    if (emailError === "" || toggleError === "" || usernameError === "") {
-      setButtonstatename(false);
-    } else {
+    if (emailError === "" && toggleError === "" && usernameError === "") {
       sethasError(false);
-      setButtonstatename(true);
+    } else {
+      sethasError(true);
     }
   }, [usernameError, emailError, toggleError]);
 
@@ -113,7 +112,7 @@ function Namestage({
         error={toggleError}
         onChange={handleValidation}
       />
-      {buttonstatename ? (
+      {!hasError ? (
         <ContinueButton handlestate={handleSubmit} color="2" />
       ) : (
         <ContinueButton handlestate={() => {}} color="6" />

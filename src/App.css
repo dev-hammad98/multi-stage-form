@@ -1,19 +1,23 @@
-#root {
 
+
+#root {
   --text-color1: #5e0054; 
   --text-color2: #fff9fe; 
   --text-color3:#fde3f9;
   --text-color4:rgba(184, 184, 184, 0.4);
   --text-color5:rgba(96, 35, 77, 0.4);
   --text-color6:rgba(177, 93, 255, 0.356);
+  
 }
 
-.main{  position: fixed;
+.main{  
+  position: fixed;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);}
+  transform: translate(-50%, -50%);
+}
 
-
+ 
 
 
 
@@ -95,10 +99,18 @@
 .centerinputbox {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   padding: 1rem;
 
 }
+
+.showboxcomponents {
+  display: flex;
+  justify-content: space-between;
+  gap: 130px;
+  
+}
+
 
 
 /* the dropdown css */
@@ -163,14 +175,27 @@
 
 
 .d1 > * {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .d2 > * {
   margin-bottom: 0.5rem;
 }
-
-
+.input-container {
+  position: relative;
+}
+.exclamation-mark {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+}
 
 
 @media screen and (max-width: 800px) {
@@ -205,6 +230,8 @@
         gap:30px;
       }
       .centerform {width: 300px;}
+
+     
 
 }
 
@@ -241,6 +268,7 @@
         gap:20px;
       }
       .centerform {width: 250px;}
+     
 
 
 

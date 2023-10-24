@@ -1,10 +1,9 @@
 import { useState } from "react";
-import Heading from "./Heading";
-import SideNavigation from "./SideNavigation";
-import Subheading from "./Subheading";
-import CenterForm from "./CenterForm";
-
-type Stage = "1" | "2" | "3";
+import Heading from "../Units/Heading";
+import SideNavigation from "../Centerbuilding/SideNavigation";
+import Subheading from "../Units/Subheading";
+import CenterForm from "../Centerbuilding/CenterForm";
+import { Stage } from "../type";
 
 const subheadingValues = ["Initial info", "Password screen", "Review screen"];
 
@@ -27,13 +26,13 @@ function Structurecomponent() {
 
   return (
     <div>
-      <div className="navmargin">
+      <div className="navmargin ">
         <SideNavigation subheadingValues={subheadingValues} stage={stage} />
       </div>
       <div className="main">
         <div className="center-content">
           <div className="center-content2">
-            <Heading content="Super test form" />
+            <Heading title="Super test form" />
             <Subheading titleofheading={subheadingValues[Number(stage) - 1]} />
           </div>
           <CenterForm stage={stage} onStageChange={handleStageChange} />

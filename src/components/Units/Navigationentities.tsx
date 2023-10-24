@@ -1,9 +1,6 @@
-import "../App.css";
+import "../../App.css";
 
-type NavProps = {
-  navtitle: string;
-  color: "1" | "5";
-};
+import { NavProps } from "../type";
 
 const Navigationentities = ({ navtitle, color }: NavProps): JSX.Element => {
   return (

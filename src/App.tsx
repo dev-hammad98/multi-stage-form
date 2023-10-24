@@ -1,5 +1,5 @@
 import "./App.css";
-import Structurecomponent from "./components/Structurecomponent";
+import Structurecomponent from "./components/strucutre/Structurecomponent";
 
 function App() {
   return (

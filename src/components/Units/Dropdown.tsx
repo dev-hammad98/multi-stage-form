@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 import Select, { OptionProps } from "react-select";
 import { FaCheck } from "react-icons/fa";
+import { CenterFormValues, dropdownproptype, showboxproptype } from "../type";
 
-type Option = {
-  value: string;
-  label: string;
-};
-type toggleprop = {
-  handletoggle: (newStatetoggle: string) => void;
-  error: string;
-  onChange: (event: Option | null) => void;
-};
+const Dropdown = ({ handletoggle, fik }: dropdownproptype) => {
+  const [selectedOption, setSelectedOption] = useState<showboxproptype | null>(
+    null
+  );
 
-const Dropdown = ({ handletoggle, error, onChange }: toggleprop) => {
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
-
-  const options: Option[] = [
+  const options: showboxproptype[] = [
     { value: "option1", label: "Option 1" },
     { value: "option2", label: "Option 2" },
     { value: "option3", label: "Option 3" },
@@ -23,14 +16,16 @@ const Dropdown = ({ handletoggle, error, onChange }: toggleprop) => {
     { value: "option5", label: "Option 5" },
   ];
 
-  const handleSelect = (value: Option | null) => {
+  const handleSelect = (value: showboxproptype | null) => {
     setSelectedOption(value);
     if (value !== null) {
       handletoggle(value.value ?? "");
     }
   };
 
-  const CustomOption: React.FC<OptionProps<Option, false>> = (props) => {
+  const CustomOption: React.FC<OptionProps<showboxproptype, false>> = (
+    props
+  ) => {
     const { data, isSelected, innerProps } = props;
     const optionIndex = options.findIndex(
       (option) => option.value === data.value
@@ -64,18 +59,20 @@ const Dropdown = ({ handletoggle, error, onChange }: toggleprop) => {
         <div className="dropdown-container2">
           <Select
             value={selectedOption}
-            onChange={(e) => {
-              onChange(e);
-              handleSelect(e);
-            }}
+            onChange={handleSelect}
             options={options}
             placeholder="Select Country"
             classNamePrefix="custom-select"
             components={{ Option: CustomOption }}
           />
         </div>
-        <span className="text-danger small">{error ? error : ""}</span>
+        <span className="text-danger small">
+          {fik.errors["toggle" as keyof CenterFormValues]
+            ? fik.errors["toggle" as keyof CenterFormValues]
+            : ""}
+        </span>
       </div>
+      "
     </div>
   );
 };

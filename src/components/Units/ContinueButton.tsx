@@ -1,24 +1,10 @@
-// import { useEffect, useState } from "react";
+import { continuebuttonprop } from "../type";
 
-interface InputProps {
-  handlestate: () => void;
-  color: string;
-}
-
-function ContinueButton({ handlestate, color }: InputProps) {
+function ContinueButton({ handlestate, color }: continuebuttonprop) {
   const handleSubmit = () => {
     handlestate();
   };
   const buttonColor = color === "6" ? `var(--text-color${4})` : "";
-  //   const [isDisabled, setIsDisabled] = useState<boolean>(false);
-
-  //   useEffect(() => {
-  //     if (color === "6") {
-  //       setIsDisabled(true);
-  //     } else {
-  //       setIsDisabled(false);
-  //     }
-  //   }, [color]);
 
   return (
     <div>

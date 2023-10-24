@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
+import { SubheadingProps } from "../type";
 
-type StateProps = {
-  titleofheading: string;
-};
-
-function Subheading({ titleofheading }: StateProps) {
+function Subheading({ titleofheading }: SubheadingProps) {
   const [subheadingContent, setSubheadingContent] =
     useState<string>("Default content");
 

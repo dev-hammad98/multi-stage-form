@@ -1,9 +1,5 @@
-import Navigationentities from "./Navigationentities";
-
-type SideNavigationProps = {
-  subheadingValues: string[];
-  stage: string;
-};
+import Navigationentities from "../Units/Navigationentities";
+import { SideNavigationProps } from "../type";
 
 function SideNavigation({ subheadingValues, stage }: SideNavigationProps) {
   return (

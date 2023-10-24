@@ -33,6 +33,9 @@
 }
 
 
+
+
+
 .center-content {
   display: flex;
   flex-direction: column;
@@ -89,7 +92,13 @@
   gap: 10px;
 }
 
+.centerinputbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 
+}
 
 
 /* the dropdown css */
@@ -159,4 +168,80 @@
 
 .d2 > * {
   margin-bottom: 0.5rem;
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+  .navmargin {
+    margin-left: 200px;
+    margin-top: 500px;
+  }
+
+  .d2 > * {
+    margin-bottom: 1rem;
+  }
+
+  .input-block {width:250px;}
+
+  .custom-button {
+    width: 250px; 
+  }
+
+  .custom-select__menu {
+    width: 250px !important; 
+  }
+  .custom-select__control {
+    width: 250px !important; }
+
+    .custom-option { 
+      width: 250px !important;}
+
+      .centerinputbox {
+        padding: 0.5rem;
+      }
+      .center-content {
+        gap:30px;
+      }
+      .centerform {width: 300px;}
+
+}
+
+
+@media screen and (max-width: 380px) {
+  .navmargin {
+    margin-left: 120px;
+    margin-top: 520px;
+  }
+
+  .d2 > * {
+    margin-bottom: 1rem;
+  }
+
+  .input-block {width:200px;}
+
+  .custom-button {
+    width: 200px; 
+  }
+
+  .custom-select__menu {
+    width: 200px !important; 
+  }
+  .custom-select__control {
+    width: 200px !important; }
+
+    .custom-option { 
+      width: 200px !important;}
+
+      .centerinputbox {
+        padding: 0.3rem;
+      }
+      .center-content {
+        gap:20px;
+      }
+      .centerform {width: 250px;}
+
+
+
 }

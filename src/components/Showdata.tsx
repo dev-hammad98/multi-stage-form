@@ -20,7 +20,7 @@ function Showdata({ handlestate, fik, tooglestate }: InputProps) {
     handlestate();
   };
   return (
-    <div className="d-flex flex-column align-items-center p-4 d1">
+    <div className="centerinputbox d1">
       <Showbox label="Username" value={fik.values.Username} />
       <Showbox label="Email" value={fik.values.Email} />
       <Showbox label="Country" value={tooglestate} />

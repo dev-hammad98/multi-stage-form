@@ -31,7 +31,7 @@ function Namestage({
   fik,
   handletoggle,
 }: NamestageProps) {
-  const [buttonstatename, setButtonstatename] = useState<boolean>(true);
+  const [buttonstatename, setButtonstatename] = useState<boolean>(false);
   const [usernameError, setusernameError] = useState<string>("");
   const [emailError, setemailError] = useState<string>("");
   const [toggleError, settoggleError] = useState<string>("");
@@ -75,17 +75,6 @@ function Namestage({
         sethasError(true);
       }
     }
-    console.log(
-      emailError === "" && toggleError === "" && usernameError === "",
-      "BUTTON"
-    );
-
-    if (emailError === "" && toggleError === "" && usernameError === "") {
-      sethasError(false);
-      setButtonstatename(true);
-    } else {
-      setButtonstatename(false);
-    }
   };
 
   const handletogglestate = (value: string) => {
@@ -93,25 +82,20 @@ function Namestage({
   };
 
   useEffect(() => {
-    console.log(
-      emailError === "" && toggleError === "" && usernameError === "",
-      "BUTTON"
-    );
-
     console.log(toggleError, "toggle error");
     console.log(fik.values.toggle, "toggle fik");
     console.log(emailError, "email error");
 
-    if (emailError === "" && toggleError === "" && usernameError === "") {
+    if (emailError === "" || toggleError === "" || usernameError === "") {
+      setButtonstatename(false);
+    } else {
       sethasError(false);
       setButtonstatename(true);
-    } else {
-      setButtonstatename(false);
     }
-  }, [usernameError, emailError, toggleError, fik.values.toggle]);
+  }, [usernameError, emailError, toggleError]);
 
   return (
-    <div className="d-flex flex-column align-items-center p-4 d1">
+    <div className="centerinputbox d1">
       <InputComponent
         namevalue={username}
         fik={fik}

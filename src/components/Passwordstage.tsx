@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContinueButton from "./ContinueButton";
 import InputComponent from "./InputComponent";
 import { FormikProps } from "formik";
@@ -19,7 +19,7 @@ interface InputProps {
 }
 
 function Passwordstage({ password, repass, handlestate, fik }: InputProps) {
-  const [buttonstatepass, setButtonstatepass] = useState<boolean>(true);
+  const [buttonstatepass, setButtonstatepass] = useState<boolean>(false);
   const [passwordError, setpasswordError] = useState<string>("");
   const [repeatPasswordError, setrepeatPasswordError] = useState<string>("");
   const [hasError, sethasError] = useState<boolean>(true);
@@ -53,14 +53,20 @@ function Passwordstage({ password, repass, handlestate, fik }: InputProps) {
         sethasError(true);
       }
     }
+  };
+
+  useEffect(() => {
     if (passwordError === "" && repeatPasswordError === "") {
+      sethasError(true);
+      setButtonstatepass(false);
+    } else {
       sethasError(false);
       setButtonstatepass(true);
     }
-  };
+  }, [passwordError, repeatPasswordError]);
 
   return (
-    <div className="d-flex flex-column align-items-center p-4 d1">
+    <div className="centerinputbox d1">
       <InputComponent
         namevalue={password}
         fik={fik}

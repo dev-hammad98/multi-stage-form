@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { useFormik } from "formik";
 import Namestage from "./Namestage";
 import Passwordstage from "./Passwordstage";
 import Showdata from "./Showdata";
-import { useFormik } from "formik";
 
 type Stage = "1" | "2" | "3";
 

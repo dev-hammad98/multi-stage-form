@@ -154,10 +154,12 @@ function CenterForm({ stage, onStageChange }: CenterFormProps) {
       <div className="container">
         <div className="centerform">
           <div className="centerinputbox d1">
-            <Showbox label="Username" value={Formik.values.Username} />
-            <Showbox label="Email" value={Formik.values.Email} />
-            <Showbox label="Country" value={statetoggle} />
-            <ContinueButton handlestate={handleSubmit} color={"2"} />
+            <div className="centershowbox d1">
+              <Showbox label="Username" value={Formik.values.Username} />
+              <Showbox label="Email" value={Formik.values.Email} />
+              <Showbox label="Country" value={statetoggle} />
+              <ContinueButton handlestate={handleSubmit} color={"2"} />
+            </div>
           </div>
         </div>
       </div>

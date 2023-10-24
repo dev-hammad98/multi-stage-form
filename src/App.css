@@ -96,7 +96,15 @@
   gap: 10px;
 }
 
+
 .centerinputbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+}
+.centershowbox {
   display: flex;
   flex-direction: column;
   align-items: left;
